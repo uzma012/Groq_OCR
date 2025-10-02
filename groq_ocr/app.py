@@ -1,3 +1,4 @@
+import os
 import numpy as np
 from fastapi import FastAPI, UploadFile
 from fastapi.responses import JSONResponse
@@ -15,7 +16,7 @@ pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesse
 
 # Initialize GroqProvider
 groq_provider = GroqProvider()
-GROQ_MODEL = "llama-3.3-70b-versatile"  # Or your preferred Groq model
+GROQ_MODEL = os.getenv("OPENAI_MODEL")  # Or your preferred Groq model
 
 app = FastAPI()
 
